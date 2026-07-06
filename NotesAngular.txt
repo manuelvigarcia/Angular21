@@ -1,0 +1,24 @@
+Antonio Martin
+
+Desarrollo de Aplicaciones con Angular
+
+Desarrollo de aplicaciones de cliente ligero que sólo requieren el navegador.
+
+Separa la visualización HTML de la funcionalidad.
+
+Usa TypeScript (orientado a objetos)
+
+Se desarrolla completamente contra un servidor, no es ejecutable directamente en el navegador y luego se compila a JavaScript.
+
+Se basa en el patrón MVC
+	- Componente 
+			- vista para presentación al usuario (plantilla HTML)
+			- Controlador, llamado "clase componente"
+	- Modelo, llamado "servicio.
+
+
+Vamos a usar Angular 21
+
+Se crea aplicación desde el terminal de VS Studio Code con
+	> ng new <nombreAplicacion>
+
