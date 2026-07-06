@@ -4,21 +4,20 @@
   Número 2: <input type="number" [(ngModel)]="num2"><br>
   <input type="button" value="sumar" (click)="sumar()">
   <input type="button" value="multiplicar" (click)="multiplicar()"><br>
-  <input type="button" value="histórico" (click)="historico()"
+  <input type="button" value="histórico" (click)="historico()">
   <br><br>
   {{resultado}}
   <div>
     @if(listaresultados.length>0&&show){
       <table>
-        <tr><th>Operación</th><th>Resultado</th>
-      </table>
-      @for (resultado of listaresultados;track resultado>) {
-        <tr>
-          <td>{{resultado.tipo}}</td>
-          <td>{{resultado.valor}}</td>
-        </tr>
-      }
+        <tr><th>Operación&nbsp;</th><th>&nbsp;Resultado</th></tr>
+        @for (resultado of listaresultados;track resultado) {
+          <tr>
+            <td align="center">{{resultado.tipo}}</td>
+            <td align="center">{{resultado.valor}}</td>
+          </tr>
+        }
+        </table>
     }
-    </ul>
   </div>
 </div>
