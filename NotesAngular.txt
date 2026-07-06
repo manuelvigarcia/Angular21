@@ -42,3 +42,11 @@ en el index.html principal es donde se añaden los links de bootstrap, por ejemp
  
  
 
+Ejercicio.
+		Agenda de contactos
+			- nombre
+			- teléfono
+			- edad
+			botón guardar
+			botón mostrar para mostrarlos todos
+			no se puede guardar contactos diferentes con el mismo número. En caso repetido, alerta advirtiéndolo
