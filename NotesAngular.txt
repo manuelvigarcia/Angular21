@@ -28,3 +28,4 @@ Para crear un workspace donde crear aplicaciones, para que no se duplique con ca
 Y luego ya se crea cada aplicación con
 	> ng generate application nombre-app
 
+Usando ` como delimitador de cadenas puede usarse ${<nobre_variable} dentro de una cadena para insertar valores computados

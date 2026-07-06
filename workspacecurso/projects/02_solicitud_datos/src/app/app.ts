@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,FormsModule],
+  imports: [FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -15,6 +15,6 @@ export class App {
   edad:number=0;
   mensaje:string="";
   mostrarMensaje():void{
-    this.mensaje="Te llamas " + this.nombre + " y tienes " + this.edad + " años";
+    this.mensaje=`Te llamas ${this.nombre}  y tienes ${this.edad} +  años`;
   }
 }
