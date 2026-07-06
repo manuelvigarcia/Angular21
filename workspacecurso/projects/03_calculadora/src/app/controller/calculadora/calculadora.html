@@ -8,9 +8,11 @@
   <br><br>
   {{resultado}}
   <div>
-    <ul *ngIf="listaresultados.length>0">
-      <li *ngFor="let resultado of listaresultados">{{r}}></li>
-    {{listaresultados}}
+    @if(listaresultados.length>0&&show){
+      @for (resultado of listaresultados;track resultado>) {
+        <li>{{resultado}}</li>
+      }
+    }
     </ul>
   </div>
 </div>
