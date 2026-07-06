@@ -22,3 +22,9 @@ Vamos a usar Angular 21
 Se crea aplicación desde el terminal de VS Studio Code con
 	> ng new <nombreAplicacion>
 
+Para crear un workspace donde crear aplicaciones, para que no se duplique con cada una todos los paquetes:
+	> ng new nombre-workspace --create-application=false
+	
+Y luego ya se crea cada aplicación con
+	> ng generate application nombre-app
+
