@@ -9,8 +9,14 @@
   {{resultado}}
   <div>
     @if(listaresultados.length>0&&show){
+      <table>
+        <tr><th>Operación</th><th>Resultado</th>
+      </table>
       @for (resultado of listaresultados;track resultado>) {
-        <li>{{resultado}}</li>
+        <tr>
+          <td>{{resultado.tipo}}</td>
+          <td>{{resultado.valor}}</td>
+        </tr>
       }
     }
     </ul>
