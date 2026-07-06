@@ -29,3 +29,16 @@ Y luego ya se crea cada aplicación con
 	> ng generate application nombre-app
 
 Usando ` como delimitador de cadenas puede usarse ${<nobre_variable} dentro de una cadena para insertar valores computados
+	`Te llamas ${this.nombre}  y tienes ${this.edad} +  años` en lugar de
+	"Te llamas " + this.nombre + " y tienes " + this.edad + " años";
+	
+	
+La sintaxis requiere poner ';' al final de cada sentencia. Pero el compilador no lo exige. 	
+	
+en el index.html principal es donde se añaden los links de bootstrap, por ejemplo, dentro del <head\>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+ 
+
