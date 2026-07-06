@@ -1,20 +1,24 @@
 <p>agenda works!</p>
 <div class="container">
-  Introduce nombre:   <input type="text" [(ngModel)]="nombre"><br>
-  Introduce teléfono: <input type="text" [(ngModel)]="telefono"><br>
-  Introduce Edad:     <input type="number" [(ngModel)]="edad"><br>
-  <input type="button" value="guardar" (click)="guardar()"><br>
-  <input type="button" value="mostrar" (click)="mostrar()"><br>
-  <h1>Mi agenda</h1>
-  <div>
-      <table>
-        <tr><th>Operación</th><th>Resultado</th>
-      </table>
-      @for (resultado of listaresultados;track resultado>) {
-        <tr>
-          <td>{{resultado.tipo}}</td>
-          <td>{{resultado.valor}}</td>
-        </tr>
-      }
-  </div>
+  Introduce nombre:   <input type="text" [(ngModel)]="contacto.nombre"><br>
+  Introduce teléfono: <input type="text" [(ngModel)]="contacto.telefono"><br>
+  Introduce Edad:     <input type="number" [(ngModel)]="contacto.edad"><br><br>
+  <input type="button" value="guardar" (click)="agregarContacto()">&nbsp;
+  <input type="button" value="mostrar" (click)="mostrar()">&nbsp;
+  <input type="button" value="borrar" (click)="delete()"><br>
+  @if(contactos.length>0&&show){
+    <h1>Mi agenda</h1>
+    <div>
+        <table border="1">
+          <tr><th>Nombre&nbsp;</th><th>Teléfono&nbsp;</th><th>Edad&nbsp;</th></tr>
+          @for (contacto of contactos;track contacto) {
+            <tr>
+              <td>{{contacto.nombre}}</td>
+              <td>{{contacto.telefono}}</td>
+              <td>{{contacto.edad}}</td>
+            </tr>
+          }
+        </table>
+    </div>
+  }
 </div>
