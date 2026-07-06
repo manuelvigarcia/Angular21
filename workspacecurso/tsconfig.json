@@ -26,6 +26,18 @@
     },
     {
       "path": "./projects/02_solicitud_datos/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/031_calculadora/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/031_calculadora/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/04_agenda/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/04_agenda/tsconfig.spec.json"
     }
   ]
 }
