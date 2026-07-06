@@ -42,5 +42,6 @@ export class Agenda {
       this.contactos.splice(idx,1);
       alert('deleted one contact')
     }
+    this.contacto=new Contacto("","",0);
   }
 }
