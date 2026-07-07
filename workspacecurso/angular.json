@@ -494,25 +494,25 @@
         }
       }
     },
-    "09_http_Paises": {
+    "09_http_paises": {
       "projectType": "application",
       "schematics": {},
-      "root": "projects/09-http-paises",
-      "sourceRoot": "projects/09-http-paises/src",
+      "root": "projects/09_http_paises",
+      "sourceRoot": "projects/09_http_paises/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "projects/09-http-paises/src/main.ts",
-            "tsConfig": "projects/09-http-paises/tsconfig.app.json",
+            "browser": "projects/09_http_paises/src/main.ts",
+            "tsConfig": "projects/09_http_paises/tsconfig.app.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "projects/09-http-paises/public"
+                "input": "projects/09_http_paises/public"
               }
             ],
-            "styles": ["projects/09-http-paises/src/styles.css"]
+            "styles": ["projects/09_http_paises/src/styles.css"]
           },
           "configurations": {
             "production": {
@@ -542,10 +542,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "09_http_Paises:build:production"
+              "buildTarget": "09_http_paises:build:production"
             },
             "development": {
-              "buildTarget": "09_http_Paises:build:development"
+              "buildTarget": "09_http_paises:build:development"
             }
           },
           "defaultConfiguration": "development"
