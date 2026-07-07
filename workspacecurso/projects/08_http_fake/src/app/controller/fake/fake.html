@@ -1,0 +1,26 @@
+<div class="container">
+  Seleccione Post:
+  <select [(ngModel)]="postSelected"  (ngModelChange)="postSelected.set($event)" (change)="seleccionPost()">
+    @for(p of posts();track p){
+      <option value="{{p.id}}">{{p.id}} - {{p.title}}</option>
+    }
+  </select>
+
+  @if(comments().length>0){
+    <table border="1">
+      <tr><th>Post</th><th>Name</th><th>Email</th><th>Body</th></tr>
+      @for(c of comments();track c){
+        <tr>
+          <td>{{c.postId}}</td>
+          <td>{{c.name}}</td>
+          <td>{{c.email}}</td>
+          <td>{{c.body}}</td>
+        </tr>
+      }
+    </table>
+  }@else{
+    sin comentarios
+  }
+</div>
+
+
