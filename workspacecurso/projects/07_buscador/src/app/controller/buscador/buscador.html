@@ -1,5 +1,26 @@
 <p>buscador works!</p>
+<h4>Consulta de recursos por temática</h4>
 <div>
-  @if(hay resultados) mostrarla tabla con un @for
-
+  <select class="form-select" [(ngModel)]="tematica" (change)="mostrarTematica()">
+    <option>--Temática--</option>
+    @for(s of tematicas;track s){
+      <option value="{{s}}">{{s}}</option>
+    }
+  </select>
+  <br>
+  <div>
+    @if(resultados.length>0) {
+      <table border="1">
+        <tr><th>URL</th><th>Temática</th><th>Descripción</th><th>Fecha</th></tr>
+        @for(r of resultados;track r){
+          <tr>
+            <td><a [href]="r.url" target="blank">{{r.url}}</a></td>
+            <td>{{r.tematica|uppercase}}</td>
+            <td>{{r.descripcion}}</td>
+            <td>{{r.fecha | date:'dd/MM/yyyy'}}</td>
+          </tr>
+        }
+      </table>
+    }
+  </div>
 </div>
