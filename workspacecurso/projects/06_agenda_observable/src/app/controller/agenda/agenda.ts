@@ -10,19 +10,19 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './agenda.css',
 })
 export class Agenda {
-  contactos:Contacto[];
+  contactos=signal<Contacto[]>([]);
   contacto:Contacto=new Contacto("","",0);
-  show:boolean=false;
+  show=signal<boolean>(false);
 
   constructor(private agendaService:AgendaService){
-    this.contactos=[];
-    this.agendaService.obtenerContactos().subscribe(data=>this.contactos = data);
+    this.contactos=signal([]);
+    this.agendaService.obtenerContactos().subscribe(data=>this.contactos.set(data));
   }
 
 
   mostrar():void{
-    this.show=true;
-    this.agendaService.obtenerContactos().subscribe(data=>this.contactos = data);
+    this.show.set(true);
+    this.agendaService.obtenerContactos().subscribe(data=>this.contactos.set(data));
   }
 
   agregarContacto():void{

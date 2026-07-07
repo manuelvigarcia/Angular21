@@ -6,12 +6,12 @@
   <input type="button" value="guardar" (click)="agregarContacto()">&nbsp;
   <input type="button" value="mostrar" (click)="mostrar()">&nbsp;
   <input type="button" value="borrar" (click)="delete()"><br>
-  @if(contactos.length>0&&show){
+  @if(contactos.length>0&&show()){
     <h1>Mi agenda</h1>
     <div>
         <table border="1">
           <tr><th>Nombre&nbsp;</th><th>Teléfono&nbsp;</th><th>Edad&nbsp;</th></tr>
-          @for (contacto of contactos;track contacto) {
+          @for (contacto of contactos();track contacto) {
             <tr>
               <td>{{contacto.nombre}}</td>
               <td>{{contacto.telefono}}</td>
