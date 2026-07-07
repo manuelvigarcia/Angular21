@@ -3,24 +3,17 @@
 <div>
   <div>
     Selecciona un continente&nbsp;
-    <select>
-      <option value="1">1</option>
-      <option value="2">2</option>
-    </select>
-    <hr>
     <select [(ngModel)]="selectedcontinent" (ngModelChange)="selectedcontinent.set($event)" (change)="paisesDeContinente()">
-      <option value="Africa">Africa</option>
-      <option value="Americas">Americas</option>
-      <option value="Antarctic Ocean">Antarctic Ocean</option>
-      <option value="Asia">Asia</option>
-      <option value="Europe">Europe</option>
-      <option value="Oceania">Oceania</option>
-      <option value="Polar">Polar</option>
+      @if(listacontinentes().length<1){
+        <option value="Polar">Polar</option>
+      }
       @for(region of listacontinentes();track region){
         <option value="{{region}}">{{region}}</option>
       }
     </select>
-    <br>
+    <hr>
+
+    <hr>
     @if(listapaises().length>0){
       <table border="1" width="100%">
         <tr>
@@ -40,9 +33,10 @@
 
       </table>
     }
-    <hr>
-    <br>
-    checked with remote site {{consultedremote()}} times.
+
+
+
+
     <br>
     Selected continent: {{selectedcontinent()}}
     <br>

@@ -10,7 +10,6 @@ export class PaisesService {
   paises:Pais[]=[];
   continentes:string[]=[]
   url:string="https://countries.dev/countries?fields=name,region,population,flags"
-  consultedremote:number=0
 
   constructor(private http:HttpClient){}
 
@@ -21,21 +20,16 @@ export class PaisesService {
   }
 
   private loadPaises():Observable<Pais[]>{
-    this.consultedremote+=1;
     return this.http.get<Pais[]>(this.url)
   }
 
   obtenerContinentes():Observable<string[]>{
     this.startService();
-    return of(Array.from(new Set(this.paises.map(p=>p.region))))
+    return of(Array.from(new Set(this.paises.map(p=>p.region))).sort())
   }
 
   obtenerPaises(continente:string):Observable<Pais[]>{
     this.startService();
     return of(Array.from(new Set(this.paises.filter(p=>p.region==continente))))
-  }
-
-  getTimesConsulted():number{
-    return this.consultedremote
   }
 }
