@@ -1,13 +1,14 @@
-export class Pais{
-  nombre:string
-  continente:string
-  poblacion:number
-  bandera:string
-  constructor(nombre:string,continente:string,poblacion:number,bandera:string){
-    this.nombre=nombre;
-    this.continente=continente;
-    this.poblacion=poblacion;
-    this.bandera=bandera;
-  }
+import { Flag } from "./flag";
 
+export class Pais{
+  name:string
+  region:string
+  population:number
+  flags:Flag
+  constructor(name:string,region:string,population:number,flags:Flag){
+    this.name=name;
+    this.region=region;
+    this.population=population;
+    this.flags=flags;
+  }
 }

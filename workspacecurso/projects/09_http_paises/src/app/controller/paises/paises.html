@@ -1,1 +1,65 @@
 <p>paises works!</p>
+<br>
+<div>
+  <div>
+    Selecciona un continente&nbsp;
+    <select>
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select>
+    <hr>
+    <select [(ngModel)]="selectedcontinent" (ngModelChange)="selectedcontinent.set($event)" (change)="paisesDeContinente()">
+      <option value="Africa">Africa</option>
+      <option value="Americas">Americas</option>
+      <option value="Antarctic Ocean">Antarctic Ocean</option>
+      <option value="Asia">Asia</option>
+      <option value="Europe">Europe</option>
+      <option value="Oceania">Oceania</option>
+      <option value="Polar">Polar</option>
+      @for(region of listacontinentes();track region){
+        <option value="{{region}}">{{region}}</option>
+      }
+    </select>
+    <br>
+    @if(listapaises().length>0){
+      <table border="1" width="100%">
+        <tr>
+          <th>Nombre país</th>
+          <th width=125>Continente</th>
+          <th width=90>Población</th>
+          <th width=70>Bandera</th>
+        </tr>
+        @for(p of listapaises();track p){
+          <tr>
+            <td>{{p.name}}</td>
+            <td>{{p.region}}</td>
+            <td align="right">{{p.population}}</td>
+            <td align="center"><img src={{p.flags.svg}} height="25"></td>
+          </tr>
+        }
+
+      </table>
+    }
+    <hr>
+    <br>
+    checked with remote site {{consultedremote()}} times.
+    <br>
+    Selected continent: {{selectedcontinent()}}
+    <br>
+    Listando {{listacontinentes().length}} continentes:
+
+  @if(listacontinentes().length>0){
+    <ul>
+      @for(c of listacontinentes();track c){
+        <li>{{c}}</li>
+      }
+    </ul>
+  }@else{
+    {{obtenerContinentes()}}
+  }
+    <input type="button" value="reload continents" (click)="obtenerContinentes()">
+
+    <br>
+    Tenemos {{listapaises().length}} paises.
+  </div>
+</div>

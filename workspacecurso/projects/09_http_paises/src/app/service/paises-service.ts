@@ -1,10 +1,41 @@
-import { Service } from '@angular/core';
+import { Injectable, Service } from '@angular/core';
 import { Pais } from '../model/pais';
+import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
-@Service()
+@Injectable({
+  providedIn: 'root',
+})
 export class PaisesService {
-  listaPaises:Pais[]=[];
+  paises:Pais[]=[];
+  continentes:string[]=[]
+  url:string="https://countries.dev/countries?fields=name,region,population,flags"
+  consultedremote:number=0
 
+  constructor(private http:HttpClient){}
 
+  private startService():void{
+    if(!(this.paises.length>0)){
+      this.loadPaises().subscribe(paises=>this.paises=paises);
+    }
+  }
 
+  private loadPaises():Observable<Pais[]>{
+    this.consultedremote+=1;
+    return this.http.get<Pais[]>(this.url)
+  }
+
+  obtenerContinentes():Observable<string[]>{
+    this.startService();
+    return of(Array.from(new Set(this.paises.map(p=>p.region))))
+  }
+
+  obtenerPaises(continente:string):Observable<Pais[]>{
+    this.startService();
+    return of(Array.from(new Set(this.paises.filter(p=>p.region==continente))))
+  }
+
+  getTimesConsulted():number{
+    return this.consultedremote
+  }
 }
