@@ -62,6 +62,12 @@
     },
     {
       "path": "./projects/08_http_fake/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/09-http-paises/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/09-http-paises/tsconfig.spec.json"
     }
   ]
 }
