@@ -1,6 +1,6 @@
 import { Injectable, Service } from '@angular/core';
 import { Pais } from '../model/pais';
-import { Observable, of } from 'rxjs';
+import { Observable, of, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -13,10 +13,17 @@ export class PaisesService {
 
   constructor(private http:HttpClient){}
 
-  private startService():void{
-    if(!(this.paises.length>0)){
-      this.loadPaises().subscribe(paises=>this.paises=paises);
+  private startService():Observable<Pais[]>{
+/*    if(!(this.paises.length>0)){
+      this.loadPaises()
+           .subscribe(paises=>{this.paises=paises;
+                      this.continentes=Array.from(new Set(this.paises.map(p=>p.region)));
+                      return of(this.paises);
+      });
     }
+    return of (this.paises);
+*/
+    return this.loadPaises();
   }
 
   private loadPaises():Observable<Pais[]>{
@@ -24,12 +31,13 @@ export class PaisesService {
   }
 
   obtenerContinentes():Observable<string[]>{
-    this.startService();
-    return of(Array.from(new Set(this.paises.map(p=>p.region))).sort())
+    //return this.startService().pipe(
+    return this.loadPaises().pipe(
+          map(arrayPaises=>[...new Set(arrayPaises.map(pais=>pais.region))].sort()));
   }
 
   obtenerPaises(continente:string):Observable<Pais[]>{
-    this.startService();
-    return of(Array.from(new Set(this.paises.filter(p=>p.region==continente))))
+    return this.startService().pipe(
+          map(arrayPaises=>arrayPaises.filter(p=>p.region==continente)))
   }
 }

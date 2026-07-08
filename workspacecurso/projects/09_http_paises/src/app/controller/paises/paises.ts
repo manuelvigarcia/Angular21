@@ -16,9 +16,8 @@ export class Paises implements OnInit{
 
   constructor(private paisesService:PaisesService){}
   ngOnInit(): void {
-    this.obtenerContinentes();
-//    this.paisesService.obtenerContinentes()
-//        .subscribe(continentes=>{this.listacontinentes.set(continentes);alert("We've got continents")});
+    this.paisesService.obtenerContinentes()
+        .subscribe(continentes=>{this.listacontinentes.set(continentes);alert("We've got continents")});
   }
   paisesDeContinente():void{
     this.paisesService.obtenerPaises(this.selectedcontinent())
