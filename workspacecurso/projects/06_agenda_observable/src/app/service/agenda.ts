@@ -24,7 +24,8 @@ export class AgendaService {
 
   eliminarContacto(telefono:string):Observable<void>{
     this.contactos=this.contactos.filter(c=>c.telefono!=telefono)
-    return of()
+    // return of() // Si se deja así, no se notifica el final de la ejecución a quien observa
+    return of(void 0) // esto es un return vacío, pero que notifica a los observadores
   }
 
   /*delete():void{
