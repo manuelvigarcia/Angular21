@@ -2,6 +2,9 @@ Antonio Martin
 
 Desarrollo de Aplicaciones con Angular
 
+Reunión de Teams:
+https://teams.microsoft.com/meet/384232200231430?p=ZGY4nOI4nK1Vo8Uqzm
+
 Desarrollo de aplicaciones de cliente ligero que sólo requieren el navegador.
 
 Separa la visualización HTML de la funcionalidad.
@@ -72,3 +75,31 @@ Aplicación de peticiones web al servicio remoto https://jsonplaceholder.typicod
 
 Aplicación de consulta de datos de países por continentes en https://countries.dev/countries?fields=name,region,population,flags
 	Seleccionando un continente, se muestra una tabla con los datos de todos los países.
+
+
+
+Cuando se envían objetos en el HTTP request (POST) se puede enviar el objeto directamente, indicando que se codifica como json:
+		heads=heads.set("Content-Type","application/json");
+		return this.http.post<void>(url,cliente,{"headers":heads});
+
+El resultado del servicio HTTP, se pueden recibir los encabezados si en la invocación se indica 'observe:"response"'
+		buscar(tematica:string):Observable<any>{
+			return this.http.get(this.urlBase+"buscar",
+				{params:{tematica:tematica},observe:"response"});
+		}
+
+
+docker run --name=buscador -p 8000:8000 ajms66/microservicios:buscador
+
+
+Con el tag <form> permite aplicar validación a los valores de los controles dentro de la página.
+	<form #form="ngForm" (ngSubmit)="alta(form)">
+	</form>
+	Se usan los validadores HTML:
+		- required
+		- minlength
+		- . . .
+	
+Con formularios reactivos son más versátiles y se construyen desde el controller.
+Se incluyen en el ReactiveFormsModule
+El formulario es un FormGroup y cada componente es un elemento FormControl. Además son Observable y se puede reaccionar a sus cambios.
