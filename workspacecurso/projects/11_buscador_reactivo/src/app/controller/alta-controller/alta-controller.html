@@ -1,0 +1,47 @@
+<p>alta-controller works!</p>
+<h1>Formulario para nuevos items</h1>
+
+  <form [formGroup]="altaForm" (ngSubmit)="guardar(f)">
+  Inrroduce url: <input type="text"
+                    formControlName="url"
+                    #url="ngModel"
+                    name="url"
+                    [ngModel]="item().url"
+                    (ngModleChange)="item.update(c=>({ ...c, url: $event }))"
+                ><br>
+                @if(altaForm.get("url").invalid){
+                  <small>Es obligatorio el campo URL</small>
+                }
+  Introduce temática: <input type="text"
+                    formControlName="tematica"
+                #tematica="ngModel"
+                name="tematica"
+                [(ngModel)]="item().tematica"
+                (ngModelChange)="item.update(c=>({ ...c, tematica: $event }))"
+                ><br>
+                @if(altaForm.get("tematica").invalid){
+                  <small>Es obligatorio el campo temática</small>
+                }
+
+  Introduce descripción <input type="text"
+                    formControlName="descripcion"
+                  #descripcion="ngModel"
+                  name="descripcion"
+                  [(ngModel)]="item().descripcion"
+                  (ngModelChange)="item.update(c=>({ ...c, descripcion: $event }))"
+                  ><br>
+                @if(altaForm.get("descripcion").invalid){
+                  @if(altaForm.get("descripcion").errors['required']){
+                    <small>Es obligatorio el campo descripción</small>
+                  }
+                  @if(altaForm.get("descripcion").errors['minlength']){
+                    <small>La descripción debe tener al menos 10 caracteres</small>
+                  }
+                  @if(altaForm.get("descripcion").errors['maxlength']){
+                    <small>La descripción puede tener un máximo 20 caracteres</small>
+                  }
+                }
+  <input type="button" value="Guardar" (click)="guardar()"><br>
+
+
+  </form>

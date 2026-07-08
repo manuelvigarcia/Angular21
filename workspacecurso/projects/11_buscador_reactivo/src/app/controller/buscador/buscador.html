@@ -1,0 +1,21 @@
+<p>buscador works!</p>
+<div>
+  <h1>Búsqueda de items por temática</h1>
+  Introduce temática:&nbsp;
+  <input type="text" [(ngModel)]="tematica"><br>
+  <input type="button" value="Resultados" (click)="mostrarTematica()"><br>
+  @if(resultados().length>0){
+    <table border="1">
+      <tr><th>URL</th><th>Tematica</th><th>Descripción</th><th>Eliminar</th></tr>
+      @for(r of resultados();track r){
+        <tr>
+          <td>{{r.url}}</td>
+          <td>{{r.tematica}}</td>
+          <td>{{r.descripcion}}</td>
+          <td align="center"><input type="button" value="&nbsp;X&nbsp;" (click)="borrarResultado()"></td>
+        </tr>
+      }
+  }
+  &lt;{{tematicaselecionada()}}&gt;<br>
+  Tiene {{resultados().length}} elementos.
+</div>
