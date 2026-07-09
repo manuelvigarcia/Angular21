@@ -1,5 +1,4 @@
 import { Tematica } from './../../service/tematica';
-import { Observable } from 'rxjs';
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Resultado } from '../../model/resultado';
@@ -19,11 +18,17 @@ export class Buscador {
   }
 
   mostrarTematica(){
-    this.tematicaselecionada=this.tematica
+    this.tematicaselecionada.set(this.tematica())
     this.tematicaservice.porTematica(this.tematica())
-        .subscribe(items=>this.resultados.set(items));
+        .subscribe({
+          next:items=>this.resultados.set(items),
+          error:err=>alert(`No se pudo mostrar la información: ${err}.`)
+        });
   }
-  borrarResultado(){
-
+  borrarResultado(url:string){
+    this.tematicaservice.del(url).subscribe({
+      next:data=>this.mostrarTematica(),
+      error:err=>alert(`No se pudo eliminar: ${err}`)
+    });
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule,Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-controller',
@@ -7,4 +7,8 @@ import { RouterModule } from '@angular/router';
   templateUrl: './menu-controller.html',
   styleUrl: './menu-controller.css',
 })
-export class MenuController {}
+export class MenuController {
+  constructor(router:Router){
+    router.navigate(["/buscar"]);  // para poner un sub componente al iniciar.
+  }
+}

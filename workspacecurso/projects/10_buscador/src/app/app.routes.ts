@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { AltaController } from './controller/alta-controller/alta-controller';
+import { Buscador } from './controller/buscador/buscador';
 
 export const routes: Routes = [
   {
@@ -7,6 +9,6 @@ export const routes: Routes = [
   },
   {
   "path":"buscar",
-  "component":BuscarController
+  "component":Buscador
   }
 ];
