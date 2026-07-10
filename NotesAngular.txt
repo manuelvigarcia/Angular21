@@ -103,3 +103,36 @@ Con el tag <form> permite aplicar validación a los valores de los controles den
 Con formularios reactivos son más versátiles y se construyen desde el controller.
 Se incluyen en el ReactiveFormsModule
 El formulario es un FormGroup y cada componente es un elemento FormControl. Además son Observable y se puede reaccionar a sus cambios.
+
+Los formularios reactivos permiten hacer validaciones personalizadas, como validadores/ValidarUrl.ts en proyecto 11_buscador_reactivo.
+
+Formularios se implementan de tres modos
+	- tradicional
+	- reactivos
+	- SignalForms
+
+
+Librería material. Componentes de bonitificación de UI.
+
+Almacenamiento local en formato texto ("clave", "valor")
+ - LocalStorage - persistente
+ - SessionStorage - almacena durante la sesión actual.
+ Método setItem(clave,valor) para almacenar
+ Método getItem(clave) para recuperar valor
+ Método removeItem(clave) para eliminar el par completamente
+ 
+ 
+ Nuevo proyecto.
+	- Consultando el servicio http://localhost:8000/swagger-ui/index.html (java.exe -jar c:\d\GitRepos\Angular\Angular21\CourseMaterial\alumnos.jar)
+	- validaciones:
+		- Un nombre de curso, no puede incluir la palabra "avanzado"
+		- Si el email termina en empresa.es, el curso no será requerido
+		- típicas validaciones
+	- Generar aplicación Angular para
+		- /alta
+		- /cursos
+		- /buscar/{email}
+		- /alumnoscurso
+		- /alumnos
+		- /eliminar/{email}
+		- gestión de Alumnos Favoritos con LocalStorage o SessionStorage.
