@@ -1,5 +1,4 @@
 import { Tematica } from './../../service/tematica';
-import { Observable } from 'rxjs';
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Resultado } from '../../model/resultado';

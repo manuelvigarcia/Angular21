@@ -1,36 +1,39 @@
 <p>alta-controller works!</p>
+<div class="container">
 <h1>Formulario para nuevos items</h1>
 
-  <form [formGroup]="altaForm" (ngSubmit)="guardar(f)">
+  <form [formGroup]="altaForm" (ngSubmit)="guardar(altaForm)">
   Inrroduce url: <input type="text"
                     formControlName="url"
                     #url="ngModel"
                     name="url"
-                    [ngModel]="item().url"
-                    (ngModleChange)="item.update(c=>({ ...c, url: $event }))"
-                ><br>
+                    [(ngModel)]="resultado().url"
+                    (ngModleChange)="resultado.update(c=>({ ...c, url: $event }))"><br>
                 @if(altaForm.get("url").invalid){
-                  <small>Es obligatorio el campo URL</small>
+                  @if(altaForm.get("url").hasError('required')){
+                    <small>Es obligatorio el campo URL</small>
+                  }
+                  @if(altaForm.get("url").hasError('errorUrl')){
+                    <small>Es obligatorio el campo URL</small>
+                  }
                 }
   Introduce temática: <input type="text"
                     formControlName="tematica"
                 #tematica="ngModel"
                 name="tematica"
-                [(ngModel)]="item().tematica"
-                (ngModelChange)="item.update(c=>({ ...c, tematica: $event }))"
-                ><br>
+                [(ngModel)]="resultado().tematica"
+                (ngModelChange)="resultado.update(c=>({ ...c, tematica: $event }))"><br>
                 @if(altaForm.get("tematica").invalid){
                   <small>Es obligatorio el campo temática</small>
                 }
 
-  Introduce descripción <input type="text"
+  Introduce descripción: <input type="text"
                     formControlName="descripcion"
                   #descripcion="ngModel"
                   name="descripcion"
-                  [(ngModel)]="item().descripcion"
-                  (ngModelChange)="item.update(c=>({ ...c, descripcion: $event }))"
-                  ><br>
-                @if(altaForm.get("descripcion").invalid){
+                  [(ngModel)]="resultado().descripcion"
+                  (ngModelChange)="resultado.update(c=>({ ...c, descripcion: $event }))"><br>
+                @if((altaForm.get("descripcion").invalid)&&(altaForm.get("descripcion").errors != null)){
                   @if(altaForm.get("descripcion").errors['required']){
                     <small>Es obligatorio el campo descripción</small>
                   }
@@ -41,7 +44,6 @@
                     <small>La descripción puede tener un máximo 20 caracteres</small>
                   }
                 }
-  <input type="button" value="Guardar" (click)="guardar()"><br>
-
-
+  <input type="button" value="Guardar" (click)="guardar(altaForm)"><br>
   </form>
+</div>
