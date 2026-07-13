@@ -1,0 +1,18 @@
+<p>ver-favoritos works!</p>
+<br>
+Hay {{emailsFavoritos().length}}
+@if(emailsFavoritos().length>0){
+  <table border="3">
+    <tr><th>&nbsp;email&nbsp;</th><th>&nbsp;Favorito&nbsp;</th></tr>
+  @for(c of emailsFavoritos();track c){
+    <tr>
+      <td>&nbsp;{{c}}&nbsp;</td>
+      @if(isFavorito(c)){
+        <td><button (click)="delFavorito(c)">&nbsp;■&nbsp;</button></td>
+      }@else{
+        <td><button (click)="addFavorito(c)">&nbsp;□&nbsp;</button></td>
+      }
+    </tr>
+  }
+  </table>
+}

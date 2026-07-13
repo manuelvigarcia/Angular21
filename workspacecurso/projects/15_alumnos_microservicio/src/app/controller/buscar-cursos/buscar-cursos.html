@@ -1,0 +1,11 @@
+<h3>buscar-cursos works!</h3>
+<input type="button" value="buscarCursos" (click)="obtenerCursos()"><br>
+<br>
+Hay {{listaCursos().length}} cursos:
+@if(listaCursos().length>0){
+  <ul>
+  @for(c of listaCursos();track c){
+    <li>{{c}}</li>
+  }
+  </ul>
+}

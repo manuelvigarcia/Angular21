@@ -1,0 +1,18 @@
+<h2>menu.ts works!</h2>
+
+<div class="container">
+  <div>
+    <a [routerLink]="['/nuevoalumno']" routerLinkActive="router-link-active">Nuevo Alumno</a>
+    &nbsp;|&nbsp;
+    <a [routerLink]="['/alumnoscurso']" routerLinkActive="router-link-active">Alumnos por curso</a>
+    &nbsp;|&nbsp;
+    <a [routerLink]="['/verfavoritos']" routerLinkActive="router-link-active">Ver Favoritos</a>
+    &nbsp;|&nbsp;
+    <a [routerLink]="['/alumnos']" routerLinkActive="router-link-active">Todos los Alumnos</a>
+  </div>
+  <div>
+    <router-outlet>
+
+    </router-outlet>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<h3>buscar-alumnos works!</h3>
+<br>
+@if(listaAlumnos().length>0){
+  <table border="3">
+    <tr><th>&nbsp;ID&nbsp;</th><th>&nbsp;Nombre&nbsp;</th><th>&nbsp;email&nbsp;</th><th>&nbsp;Curso&nbsp;</th><th>&nbsp;Nota&nbsp;</th><th>&nbsp;Favorito&nbsp;</th><th>&nbsp;Eliminar&nbsp;</th></tr>
+  @for(c of listaAlumnos();track c){
+    <tr>
+      <td align="center">{{c.idAlumno}}</td>
+      <td align="center">{{c.nombre}}</td>
+      <td>&nbsp;{{c.email}}&nbsp;</td>
+      <td align="center"><input type="button" value={{c.curso}} (click)="alumnosPorCurso(c.curso)"></td>
+      <td>{{c.nota|number}}&nbsp;-&nbsp;{{c.nota|calificacion}}</td>
+      @if(isFavorito(c.email)){
+        <td><button (click)="delFavorito(c.email)">&nbsp;■&nbsp;</button></td>
+      }@else{
+        <td><button (click)="addFavorito(c.email)">&nbsp;□&nbsp;</button></td>
+      }
+      <td align="center"><input type="button" value="&nbsp;X&nbsp;" (click)="eliminarAlumno(c.email)"></td>
+    </tr>
+  }
+  </table>
+}
