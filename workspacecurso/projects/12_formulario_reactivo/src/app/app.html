@@ -1,0 +1,58 @@
+<p>{{title()}} Works!!!</p>
+<div class="container">
+  <h1>{{ title() }}</h1>
+  <form [formGroup]="formReact" (ngSubmit)="guardar()">
+    <table>
+      <tr><td align="right">Introduce usuario:&nbsp;</td><td> <input type="text"
+                                      formControlName="usuario"
+                                      name="usuario"><br><br></td></tr>
+        @if(formReact.get("usuario").invalid){
+          @if(formReact.get("usuario").hasError('')){
+            <small>Error</small>
+          }
+        }
+      <tr><td align="right">Introduce password:&nbsp;</td><td> <input type="password"
+                                      formControlName="password"
+                                      name="password"><br><br></td></tr>
+        @if(formReact.get("password").invalid){
+          @if(formReact.get("password").hasError('')){
+            <small>Error</small>
+          }
+        }
+      <tr><td align="right">Introduce email:&nbsp;</td><td> <input type="email"
+                                      formControlName="email"
+                                      name="email"><br><br></tr>
+        @if(formReact.get("email").invalid){
+          @if(formReact.get("email").hasError('')){
+            <small>Error</small>
+          }
+        }
+      <tr><td align="right">Introduce telefono:&nbsp;</td><td> <input type="tel"
+                                      formControlName="telefono"
+                                      name="telefono"><br><br></td></tr>
+        @if(formReact.get("telefono").invalid){
+          @if(formReact.get("telefono").hasError('')){
+            <small>Error</small>
+          }
+        }
+      <tr><td align="right">Uso profesional:&nbsp;</td><td> <input type="checkbox"
+                                      formControlName="profesional"
+                                      name="profesional"><br><br></td></tr>
+        @if(formReact.get("profesional").invalid){
+          @if(formReact.get("profesional").hasError('')){
+            <small>Error</small>
+          }
+        }
+      <tr><td align="right">Introduce instagram:&nbsp;</td><td> <input type="text"
+                                      formControlName="instagram"
+                                      name="instagram"><br></td></tr>
+        @if(formReact.get("instagram").invalid){
+          @if(formReact.get("instagram").hasError('')){
+            <small>Error</small>
+          }
+        }
+    </table>
+    <input type="submit"  value="Guardar">
+  </form>
+
+</div>
