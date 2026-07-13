@@ -13,7 +13,7 @@ export class PaisesService {
 
   constructor(private http:HttpClient){}
 
-  private loadPaises():Observable<Pais[]>{
+  loadPaises():Observable<Pais[]>{
     return this.http.get<Pais[]>(this.url)
   }
 
