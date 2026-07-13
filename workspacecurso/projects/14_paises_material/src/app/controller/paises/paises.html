@@ -1,0 +1,75 @@
+<p>paises works!</p>
+<br>
+<div>
+  <div>
+    Selecciona un continente&nbsp;
+    <select [(ngModel)]="selectedcontinent" (ngModelChange)="selectedcontinent.set($event)" (change)="paisesDeContinente()">
+      @for(region of listacontinentes();track region){
+        <option value="{{region}}">{{region}}</option>
+      }
+    </select>
+    <hr>
+
+    <hr>
+    @if(listapaises().length>0){
+
+
+    <div id="paises" class="page">
+        <h2>
+          Paises
+        </h2>
+        <table  mat-table [dataSource]="dataSource" matSort matSortActive matSortDirection="asc" class="mat-elevation-z8">
+                <ng-container matColumnDef="Pais">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+                  <td mat-cell *matCellDef="let m">{{m.name}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Continente">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+                  <td mat-cell *matCellDef="let m">{{ m.region }}</td>
+                </ng-container>
+                <ng-container matColumnDef="Poblacion">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Nota</th>
+                  <td mat-cell *matCellDef="let m">{{ m.population|number }}</td>
+                </ng-container>
+                <ng-container matColumnDef="Bandera">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Curso</th>
+                  <td mat-cell *matCellDef="let m"><img src="{{m.flags.svg}}" width="30px" height="20px" loading="lazy"></td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <mat-paginator [pageSize]="5" [pageSizeOptions]="[2, 5, 10, 50, 100]" showFirstLastButtons></mat-paginator>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+      <!-- Esta implementación de tabla no es necesaria cuando se usa Material
+      <table border="1" width="100%">
+        <tr>
+          <th>Nombre país</th>
+          <th width=125>Continente</th>
+          <th width=90>Población</th>
+          <th width=70>Bandera</th>
+        </tr>
+        @for(p of listapaises();track p){
+          <tr>
+            <td>{{p.name}}</td>
+            <td>{{p.region}}</td>
+            <td align="right">{{p.population}}</td>
+            <td align="center"><img src={{p.flags.svg}} height="25"></td>
+          </tr>
+        }
+
+      </table>
+       -->
+    }
+  </div>
+</div>
