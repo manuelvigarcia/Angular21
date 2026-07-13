@@ -12,7 +12,8 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "preserve"
+    "module": "preserve",
+    "strict": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -80,6 +81,36 @@
     },
     {
       "path": "./projects/11_buscador_reactivo/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/12_formulario_reactivo/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/12_formulario_reactivo/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/13_formulario_signals/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/13_formulario_signals/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/14_paises_material/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/14_paises_material/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/15_alumnos_microservicio/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/15_alumnos_microservicio/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/16_fake_anidacion/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/16_fake_anidacion/tsconfig.spec.json"
     }
   ]
 }

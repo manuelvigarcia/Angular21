@@ -676,6 +676,311 @@
           "builder": "@angular/build:unit-test"
         }
       }
+    },
+    "12_formulario_reactivo": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/12_formulario_reactivo",
+      "sourceRoot": "projects/12_formulario_reactivo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/12_formulario_reactivo/src/main.ts",
+            "tsConfig": "projects/12_formulario_reactivo/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/12_formulario_reactivo/public"
+              }
+            ],
+            "styles": ["projects/12_formulario_reactivo/src/styles.css"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "12_formulario_reactivo:build:production"
+            },
+            "development": {
+              "buildTarget": "12_formulario_reactivo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        }
+      }
+    },
+    "13_formulario_signals": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/13_formulario_signals",
+      "sourceRoot": "projects/13_formulario_signals/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/13_formulario_signals/src/main.ts",
+            "tsConfig": "projects/13_formulario_signals/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/13_formulario_signals/public"
+              }
+            ],
+            "styles": ["projects/13_formulario_signals/src/styles.css"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "13_formulario_signals:build:production"
+            },
+            "development": {
+              "buildTarget": "13_formulario_signals:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        }
+      }
+    },
+    "14_paises_material": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/14_paises_material",
+      "sourceRoot": "projects/14_paises_material/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/14_paises_material/src/main.ts",
+            "tsConfig": "projects/14_paises_material/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/14_paises_material/public"
+              }
+            ],
+            "styles": ["projects/14_paises_material/src/styles.css"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "14_paises_material:build:production"
+            },
+            "development": {
+              "buildTarget": "14_paises_material:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        }
+      }
+    },
+    "15_alumnos_microservicio": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/15_alumnos_microservicio",
+      "sourceRoot": "projects/15_alumnos_microservicio/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/15_alumnos_microservicio/src/main.ts",
+            "tsConfig": "projects/15_alumnos_microservicio/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/15_alumnos_microservicio/public"
+              }
+            ],
+            "styles": ["projects/15_alumnos_microservicio/src/styles.css"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "15_alumnos_microservicio:build:production"
+            },
+            "development": {
+              "buildTarget": "15_alumnos_microservicio:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        }
+      }
+    },
+    "16_fake_anidacion": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/16_fake_anidacion",
+      "sourceRoot": "projects/16_fake_anidacion/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/16_fake_anidacion/src/main.ts",
+            "tsConfig": "projects/16_fake_anidacion/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/16_fake_anidacion/public"
+              }
+            ],
+            "styles": ["projects/16_fake_anidacion/src/styles.css"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "16_fake_anidacion:build:production"
+            },
+            "development": {
+              "buildTarget": "16_fake_anidacion:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        }
+      }
     }
   }
 }

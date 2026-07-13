@@ -123,7 +123,7 @@ Almacenamiento local en formato texto ("clave", "valor")
  
  
  Nuevo proyecto.
-	- Consultando el servicio http://localhost:8000/swagger-ui/index.html (java.exe -jar c:\d\GitRepos\Angular\Angular21\CourseMaterial\alumnos.jar)
+	- Consultando el servicio http://localhost:8000/swagger-ui/index.html (c:\d\bin\java\jdk-25.0.3\bin\java.exe -jar c:\d\GitRepos\Angular\Angular21\CourseMaterial\alumnos.jar)
 	- validaciones:
 		- Un nombre de curso, no puede incluir la palabra "avanzado"
 		- Si el email termina en empresa.es, el curso no será requerido
@@ -136,3 +136,28 @@ Almacenamiento local en formato texto ("clave", "valor")
 		- /alumnos
 		- /eliminar/{email}
 		- gestión de Alumnos Favoritos con LocalStorage o SessionStorage.
+
+
+Pipes personalizados para formatear datos en una vista.
+
+TESTING
+	La libreria jazmin viene con Angular CLI y permite mockear y probar.
+	Para probar un servicio se invoca una instancia del servicio y se pueden aplicar varios métodos al resultado.
+		- toBe(valor) -> para indicar qué valor tiene que volver
+		- toBeTruthy() -> que se ejecuta sin error
+	Vamos a implementar algunas pruebas en el servicio de países proyecto 09
+	
+	También se pueden probar componentes gráficos
+
+
+Anidación de componentes (componentes Padre-Hijo)
+	Un componente puede contener otros componentes.
+	Así se puede facilitar la reutilización de componentes en diferentes partes de la aplicación.
+	Comunicación:
+		- el padre le manda datos al hijo para que los procese
+		- el hijo recoge los datos con @Input
+		- El hijo procesa los datos
+		- El hijo responde al padre con @Output (que envía un objeto de clase EventEmitter
+	
+	
+	
