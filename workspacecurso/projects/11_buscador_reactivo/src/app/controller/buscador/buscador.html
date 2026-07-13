@@ -2,8 +2,8 @@
 <div>
   <h1>Búsqueda de items por temática</h1>
   Introduce temática:&nbsp;
-  <input type="text" [(ngModel)]="tematica"><br>
-  <input type="button" value="Resultados" (click)="mostrarTematica()"><br>
+  <input type="text" [ngModel]="tematica()" (ngModelChange)="tematica.set($event)"><br>
+  <input type="button" value="Resultados" (click)="mostrarTematica()"><br><br>
   @if(resultados().length>0){
     <table border="1">
       <tr><th>URL</th><th>Tematica</th><th>Descripción</th><th>Eliminar</th></tr>
@@ -12,11 +12,9 @@
           <td>{{r.url}}</td>
           <td>{{r.tematica}}</td>
           <td>{{r.descripcion}}</td>
-          <td align="center"><input type="button" value="&nbsp;X&nbsp;" (click)="borrarResultado()"></td>
+          <td align="center"><input type="button" value="&nbsp;X&nbsp;" (click)="borrarResultado(r.url)"></td>
         </tr>
       }
     </table>
   }
-  &lt;{{tematicaselecionada()}}&gt;<br>
-  Tiene {{resultados().length}} elementos.
 </div>

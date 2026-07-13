@@ -6,12 +6,12 @@ import { validadorUrl } from '../../validadores/ValidarUrl';
 
 @Component({
   selector: 'app-alta-controller',
-  imports: [ReactiveFormsModule,FormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './alta-controller.html',
   styleUrl: './alta-controller.css',
 })
 export class AltaController {
-  resultado=signal<Resultado>(new Resultado("","",""));
+//  resultado=signal<Resultado>(new Resultado("","",""));
 
   altaForm = new FormGroup({
       url: new FormControl('', [Validators.required,validadorUrl]),
@@ -20,25 +20,27 @@ export class AltaController {
     });
 
   constructor(private tematicaservice:Tematica){
-    this.altaForm.get("url")?.valueChanges
-          .subscribe(v=>this.altaForm.get("descripcion")?.setValue(v));
+    this.altaForm.get("url").valueChanges
+          .subscribe(v=>this.altaForm.get("descripcion").setValue(v));
     this.altaForm.get("temática")?.valueChanges
         .subscribe( v=>{
           if (v=="libros"){
-            this.altaForm.get("descripcion")?.addValidators(Validators.maxLength(20));
+            this.altaForm.get("descripcion").addValidators(Validators.maxLength(20));
           } else {
-            this.altaForm.get("descripcion")?.removeValidators(Validators.maxLength(20));
+            this.altaForm.get("descripcion").removeValidators(Validators.maxLength(20));
           }
           this.altaForm.get("descripcion")?.updateValueAndValidity();
         })
   }
 
-  guardar(form:any){
-    if(form.invalid){
+  guardar(){
+    if(this.altaForm.invalid){
       alert("El formulario no es válido")
-      return
+      return;
     }
-    this.tematicaservice.alta(this.resultado())
+    let form=this.altaForm.value;
+    let resultado:Resultado=new Resultado(form.url,form.tematica,form.descripcion)
+    this.tematicaservice.alta(resultado)
         .subscribe({
             next:data=> alert("Nuevo elemento almacenado"),
             error:err=> alert("No se pudo añadir, URL repetida")

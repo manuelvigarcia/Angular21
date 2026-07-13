@@ -91,6 +91,9 @@ El resultado del servicio HTTP, se pueden recibir los encabezados si en la invoc
 
 docker run --name=buscador -p 8000:8000 ajms66/microservicios:buscador
 
+El microservicio también se puede poner a funcionar como jar con 'java -jar buscador.jar':
+			c:\d\bin\java\jdk-25.0.3\bin\java.exe -jar c:\d\GitRepos\Angular\Angular21\CourseMaterial\buscador.jar
+
 
 Con el tag <form> permite aplicar validación a los valores de los controles dentro de la página.
 	<form #form="ngForm" (ngSubmit)="alta(form)">
@@ -158,6 +161,12 @@ Anidación de componentes (componentes Padre-Hijo)
 		- el hijo recoge los datos con @Input
 		- El hijo procesa los datos
 		- El hijo responde al padre con @Output (que envía un objeto de clase EventEmitter
-	
+
+
+
+Status of projects after course ends
+====================================
+Course ended. Assignments not finished.
+Projects 12 through 16 still not working.
 	
 	
