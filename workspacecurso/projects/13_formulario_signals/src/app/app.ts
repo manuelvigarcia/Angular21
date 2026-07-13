@@ -1,3 +1,5 @@
+import { CuadroDialogo } from './ui/cuadro-dialogo/cuadro-dialogo';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Component, computed, effect, signal } from '@angular/core';
 import { form, required, minLength, email, pattern, validate, FormField } from '@angular/forms/signals';
 import { RouterOutlet } from '@angular/router';
@@ -73,8 +75,9 @@ export class App {
 
 
 private readonly usuarioValue = computed(() => this.model().usuario);
+  dialog: any;
 
-  constructor() {
+  constructor(dialog:CuadroDialogo) {
 
     effect(() => {
 
@@ -91,9 +94,9 @@ private readonly usuarioValue = computed(() => this.model().usuario);
   procesar():void{
     if(this.formInvalid){
       this.error=true
-      alert("Formulario no válido")
+      this.dialog.open(CuadroDialogo,{data:{titulo:"Error",mensaje:"Formulario no válido."}})
     }else{
-      alert("Formulario correcto")
+      this.dialog.open(CuadroDialogo,{data:{titulo:"Progreso",mensaje:"Formulario correcto."}})
     }
   }
 
