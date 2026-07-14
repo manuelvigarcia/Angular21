@@ -5,54 +5,67 @@
     <table>
       <tr><td align="right">Introduce usuario:&nbsp;</td><td> <input type="text"
                                       formControlName="usuario"
-                                      name="usuario"><br><br></td></tr>
+                                      name="usuario">
         @if(formReact.get("usuario").invalid){
-          @if(formReact.get("usuario").hasError('')){
-            <small>Error</small>
+          @if(formReact.get("usuario").hasError('required')){
+            <small>&nbsp;Nombre de usuario es obligatorio</small>
           }
-        }
+        }<br><br></td></tr>
       <tr><td align="right">Introduce password:&nbsp;</td><td> <input type="password"
                                       formControlName="password"
-                                      name="password"><br><br></td></tr>
+                                      name="password">
         @if(formReact.get("password").invalid){
-          @if(formReact.get("password").hasError('')){
-            <small>Error</small>
+          @if(formReact.get("password").hasError('required')){
+            <small>&nbsp;La contraseña es obligatoria</small>
+          }@else{
+            @if(formReact.get("password").hasError('minlength')){
+              <small>&nbsp;La contraseña debe tener al menos 6 caracteres</small>
+            }
           }
-        }
+        }<br><br></td></tr>
       <tr><td align="right">Introduce email:&nbsp;</td><td> <input type="email"
                                       formControlName="email"
-                                      name="email"><br><br></tr>
+                                      name="email">
         @if(formReact.get("email").invalid){
-          @if(formReact.get("email").hasError('')){
-            <small>Error</small>
-          }
-        }
+          @if(formReact.get("email").hasError('required')){
+            <small>&nbsp;El correo electrónico es obligatorio</small>
+          }@else {
+            @if(formReact.get("email").hasError('email')){
+              <small>&nbsp;El formato del correo electrónico no es correcto</small>
+            }
+         }
+        }<br><br></tr>
       <tr><td align="right">Introduce telefono:&nbsp;</td><td> <input type="tel"
                                       formControlName="telefono"
-                                      name="telefono"><br><br></td></tr>
+                                      name="telefono">
         @if(formReact.get("telefono").invalid){
-          @if(formReact.get("telefono").hasError('')){
-            <small>Error</small>
+          @if(formReact.get("telefono").hasError('required')){
+            <small>&nbsp;El número de teléfono es obligatorio</small>
           }
-        }
+          @if(formReact.get("telefono").hasError('pattern')){
+            <small>&nbsp;El número de no tiene el formato correcto</small>
+          }
+        }<br><br></td></tr>
       <tr><td align="right">Uso profesional:&nbsp;</td><td> <input type="checkbox"
                                       formControlName="profesional"
                                       name="profesional"><br><br></td></tr>
-        @if(formReact.get("profesional").invalid){
-          @if(formReact.get("profesional").hasError('')){
-            <small>Error</small>
-          }
-        }
       <tr><td align="right">Introduce instagram:&nbsp;</td><td> <input type="text"
                                       formControlName="instagram"
-                                      name="instagram"><br></td></tr>
+                                      name="instagram">
         @if(formReact.get("instagram").invalid){
-          @if(formReact.get("instagram").hasError('')){
-            <small>Error</small>
+          @if(formReact.get("instagram").hasError('required')){
+            <small>&nbsp;El nombre de usuario de Instagram es obligatorio para el uso profesional</small>
           }
-        }
+          @if(formReact.get("instagram").hasError('textoInstagram')){
+            <small>&nbsp;El nombre de usuario de Instagram no tiene el formato adecuado</small>
+          }
+        }<br></td></tr>
     </table>
     <input type="submit"  value="Guardar">
+    <br><br>
+    @if(formReact.invalid){
+      <small>{{formReact.errors}}</small>
+    }
   </form>
 
 </div>

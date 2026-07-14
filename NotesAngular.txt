@@ -167,6 +167,6 @@ Anidación de componentes (componentes Padre-Hijo)
 Status of projects after course ends
 ====================================
 Course ended. Assignments not finished.
-Projects 12 through 16 still not working.
+Projects 13 through 16 still not working.
 	
 	
