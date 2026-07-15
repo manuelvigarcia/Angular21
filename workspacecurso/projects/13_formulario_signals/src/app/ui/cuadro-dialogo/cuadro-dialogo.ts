@@ -9,7 +9,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/materia
 })
 export class CuadroDialogo {
   constructor(private dialogRef:MatDialogRef<CuadroDialogo>,
-    @Inject(MAT_DIALOG_DATA) public data: { mensaje: string }
+    @Inject(MAT_DIALOG_DATA) public data: {titulo:string, mensaje: string }
   ){}
   cerrar() {
     this.dialogRef.close();

@@ -1,79 +1,126 @@
 <div class="container">
-  <form (submit)="procesar();$event.preventDefault()" novalidate>
-    <label>
-      Usuario:<input type="text" [formField]="formClients.usuario">
-    </label>
+  <form (submit)="procesar(); $event.preventDefault()" novalidate>
+    <table>
+      <tr>
+        <td align="right"><label>Usuario:&nbsp;</label></td>
+        <td>
+          <label><input type="text" [formField]="formClients.usuario" /></label>
+          @if (formClients.usuario().invalid() && error) {
+            <span>El nombre de usuario es obligatorio.</span>
+          }
+        </td>
+      </tr>
+      <tr>
+        <td align="right"><label>Password:&nbsp;</label></td>
+        <td>
+          <label><input type="password" [formField]="formClients.password" /></label>
+          @if (formClients.password().invalid() && error) {
+            @if (
+              formClients
+                .password()
+                .errors()
+                ?.some((e) => e.kind === 'required')
+            ) {
+              <span>La contraseña es obligatoria.</span>
+            }
+            @if (
+              formClients
+                .password()
+                .errors()
+                ?.some((e) => e.kind === 'minLength')
+            ) {
+              <span>La contraseña debe tener al menos 6 caracteres.</span>
+            }
+          }
+        </td>
+      </tr>
+      <tr>
+        <td align="right"><label>Email:&nbsp;</label></td>
+        <td>
+          <label><input type="text" [formField]="formClients.email" /></label>
+          @if (formClients.email().invalid() && error) {
+            @if (
+              formClients
+                .email()
+                .errors()
+                ?.some((e) => e.kind === 'required')
+            ) {
+              <span>El email es obligatorio.</span>
+            }
+            @if (
+              formClients
+                .email()
+                .errors()
+                ?.some((e) => e.kind === 'email')
+            ) {
+              <span>Email no válido.</span>
+            }
+          }
+        </td>
+      </tr>
+      <tr>
+        <td align="right"><label>Teléfono:&nbsp;</label></td>
+        <td>
+          <label><input type="text" [formField]="formClients.telefono" /></label>
 
+          @if (formClients.telefono().invalid() && error) {
+            @if (
+              formClients
+                .telefono()
+                .errors()
+                ?.some((e) => e.kind === 'required')
+            ) {
+              <span>El teléfono es obligatorio.</span>
+            }
+            @if (
+              formClients
+                .telefono()
+                .errors()
+                ?.some((e) => e.kind === 'pattern')
+            ) {
+              <span>Teléfono no válido.</span>
+            }
+          }
+        </td>
+      </tr>
+      <tr>
+        <td align="right"><label>Uso profesional:&nbsp;</label></td>
+        <td>
+          <label><input type="checkbox" [formField]="formClients.profesional" /></label>
+        </td>
+      </tr>
+      <tr>
+        <td align="right"><label>Instagram:&nbsp;</label></td>
+        <td>
+          <label><input type="text" [formField]="formClients.instagram" /></label>
+          @if (formClients.instagram().invalid() && error) {
+            @if (
+              formClients
+                .instagram()
+                .errors()
+                ?.some((e) => e.kind === 'required')
+            ) {
+              <span>Tener cuenta de instagram es obligatorio para uso profesional.</span>
+            }
+            @if (
+              formClients
+                .instagram()
+                .errors()
+                ?.some((e) => e.kind === 'invalido')
+            ) {
+              <span>{{
+                formClients
+                  .instagram()
+                  .errors()
+                  ?.find((e) => e.kind === 'invalido').message
+              }}</span>
+            }
+          }
+        </td>
+      </tr>
 
-    @if(formClients.usuario().invalid()&&error){
-        <span >El nombre de usuario es obligatorio.</span>
-    }
-
-    <br>
-    <label>
-      Password:<input type="password" [formField]="formClients.password">
-    </label>
-    @if(formClients.password().invalid()&&error){
-      @if(formClients.password().errors()?.some(e => e.kind === 'required')){
-        <span>La contraseña es obligatoria.</span>
-      }
-      @if(formClients.password().errors()?.some(e => e.kind === 'minLength')){
-        <span >La contraseña debe tener al menos 6 caracteres.</span>
-      }
-    }
-
-    <br>
-
-    <label>
-      Email:<input type="text" [formField]="formClients.email">
-    </label>
-    @if(formClients.email().invalid()&&error){
-      @if(formClients.email().errors()?.some(e => e.kind === 'required')){
-        <span >El email es obligatorio.</span>
-      }
-      @if(formClients.email().errors()?.some(e => e.kind === 'email')){
-        <span >Email no válido.</span>
-      }
-    }
-
-
-    <br>
-    <label>
-      Teléfono:<input type="text" [formField]="formClients.telefono">
-    </label>
-    @if(formClients.telefono().invalid()&&error){
-       @if(formClients.telefono().errors()?.some(e => e.kind === 'required')){
-        <span >El teléfono es obligatorio.</span>
-       }
-       @if(formClients.telefono().errors()?.some(e => e.kind === 'pattern')){
-        <span >Teléfono no válido.</span>
-       }
-    }
-
-
-    <br>
-    <label>
-      Uso profesional:<input type="checkbox" [formField]="formClients.profesional">
-    </label>
-
-
-    <br>
-    <label>
-      Instagram:<input type="text" [formField]="formClients.instagram">
-    </label>
-    @if(formClients.instagram().invalid()&&error){
-      @if(formClients.instagram().errors()?.some(e => e.kind === 'required')){
-        <span >Tener cuenta de instagram es obligatorio para uso profesional.</span>
-      }
-      @if(formClients.instagram().errors()?.some(e => e.kind === 'invalido')){
-        <span >{{formClients.instagram().errors()?.find(e => e.kind === 'invalido').message}}</span>
-      }
-    }
-    <br>
-
-
-    <input type="submit" value="Registrar">
+      <br />
+    </table>
+    <input type="submit" value="Registrar" />
   </form>
-
-
 </div>

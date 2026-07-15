@@ -1,5 +1,5 @@
 import { CuadroDialogo } from './ui/cuadro-dialogo/cuadro-dialogo';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { Component, computed, effect, signal } from '@angular/core';
 import { form, required, minLength, email, pattern, validate, FormField } from '@angular/forms/signals';
 import { RouterOutlet } from '@angular/router';
@@ -25,7 +25,7 @@ export class App {
 
     formClients = form(this.model, (p) => {
       required(p.usuario);
-      minLength(p.usuario, 3);
+      // minLength(p.usuario, 3);
 
       required(p.email);
       email(p.email);
@@ -47,7 +47,7 @@ export class App {
           return undefined;
         }
 
-        const instagram = value()?.trim();
+        let instagram = value()?.trim();
         if (!instagram) {
           return undefined;
         }
@@ -77,13 +77,13 @@ export class App {
 private readonly usuarioValue = computed(() => this.model().usuario);
   dialog: any;
 
-  constructor(dialog:CuadroDialogo) {
+  constructor(dialog:MatDialog) {
 
     effect(() => {
 
       const usuario = this.usuarioValue();
 
-      //actualiza el campo el email con el valor del usuario en caso de qe sean diferentes
+      //actualiza el campo el email con el valor del usuario en caso de que sean diferentes
 
       this.model.update(prev => ({ ...prev, email: usuario }));
 
@@ -96,7 +96,7 @@ private readonly usuarioValue = computed(() => this.model().usuario);
       this.error=true
       this.dialog.open(CuadroDialogo,{data:{titulo:"Error",mensaje:"Formulario no válido."}})
     }else{
-      this.dialog.open(CuadroDialogo,{data:{titulo:"Progreso",mensaje:"Formulario correcto."}})
+      this.dialog.open(CuadroDialogo,{data:{titulo:"Info",mensaje:"Formulario correcto."}})
     }
   }
 
