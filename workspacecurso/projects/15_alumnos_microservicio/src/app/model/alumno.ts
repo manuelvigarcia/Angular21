@@ -1,7 +1,7 @@
 export interface Alumno{
-  idAlumno:number
-  nombre:string
-  curso:string
-  email:string
-  nota:number
+  idAlumno:number;
+  nombre:string;
+  email:string;
+  curso:string;
+  nota:number;
 }

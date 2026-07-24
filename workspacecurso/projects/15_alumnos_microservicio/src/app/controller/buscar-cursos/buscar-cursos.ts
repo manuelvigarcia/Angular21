@@ -1,20 +1,34 @@
 import { CursosService } from './../../service/cursos-service';
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { Curso } from '../../model/curso';
+import { Alumno } from '../../model/alumno';
+import { DecimalPipe } from '@angular/common';
+import { CalificacionPipe } from "../../pipes/calificacion-pipe";
 
 @Component({
   selector: 'app-buscar-cursos',
-  imports: [],
+  imports: [DecimalPipe, CalificacionPipe],
   templateUrl: './buscar-cursos.html',
   styleUrl: './buscar-cursos.css',
 })
-export class BuscarCursos {
+export class BuscarCursos implements OnInit{
   listaCursos=signal<Curso[]>([]);
+  listaAlumnosCurso=signal<Alumno[]>([]);
 
   constructor(private cursosService:CursosService){}
+
+  ngOnInit(): void {
+    this.obtenerCursos();
+  }
 
   obtenerCursos(){
     this.cursosService.cursos()
     .subscribe(cursos=>this.listaCursos.set(cursos))
   }
+  alumnosPorCurso(curso:Curso){
+    alert(`Alumnos del curso ${curso}`);
+    this.cursosService.alumnosPorCurso(curso.titulo)
+        .subscribe(alumnos=>this.listaAlumnosCurso.set(alumnos))
+  }
+
 }

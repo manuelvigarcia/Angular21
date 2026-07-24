@@ -117,6 +117,22 @@ Formularios se implementan de tres modos
 
 Librería material. Componentes de bonitificación de UI.
 
+
+Mostrar diferentes componentes de en un menú de navegación:
+	- Cada componente que deba estar disponible será implementado como un Component
+	- Se definen las diferentes rutas en app.routes.ts, especificando las correspondencias entre paths de aplicación y Components
+	- En el componente de de menú, en la vista .html
+		1. se ofrecen los paths como 
+			<a [routerLink]="['<path>']" routerLinkActive="router-link-active">texto</a>
+		2. se renderiza el componente correspondiente a la elección en un par de:
+			<router-outlet>
+			</router-outlet>
+	- En el componente de menú, en la parte .ts se puede implementar OnInt para hacer que siempre empiece en uno de los componentes disponibles
+			ngOnInit():void{
+				this.router.navigate(["/<uno_de_los_paths>"])
+			}
+
+
 Almacenamiento local en formato texto ("clave", "valor")
  - LocalStorage - persistente
  - SessionStorage - almacena durante la sesión actual.
@@ -167,6 +183,4 @@ Anidación de componentes (componentes Padre-Hijo)
 Status of projects after course ends
 ====================================
 Course ended. Assignments not finished.
-Projects 15 and 16 still not working.
-	
-	
+Projects 15 and 16 still not working. Project 15 missing "alumnos por curso".	

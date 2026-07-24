@@ -7,6 +7,10 @@ import { VerFavoritos } from './controller/ver-favoritos/ver-favoritos';
 
 export const routes: Routes = [
   {
+    "path":"nuevoalumno",
+    "component":NuevoAlumno
+  },
+  {
     "path":"cursos",
     "component":BuscarCursos
   },
@@ -17,10 +21,6 @@ export const routes: Routes = [
   {
     "path":"alumnoscurso",
     "component":AlumnosCurso
-  },
-  {
-    "path":"nuevoalumno",
-    "component":NuevoAlumno
   },
   {
     "path":"verfavoritos",

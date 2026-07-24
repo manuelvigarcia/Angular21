@@ -1,11 +1,33 @@
 <h3>buscar-cursos works!</h3>
-<input type="button" value="buscarCursos" (click)="obtenerCursos()"><br>
 <br>
 Hay {{listaCursos().length}} cursos:
 @if(listaCursos().length>0){
-  <ul>
+  <table>
+    <tr><th>&nbsp;Curso&nbsp;</th><th>&nbsp;Alumnos&nbsp;</th></tr>
   @for(c of listaCursos();track c){
-    <li>{{c}}</li>
+    <tr>
+      <td align="center">{{c}}</td>
+      <td align="center">
+        <input type="button" value="Alumnos de {{c}}" (click)="alumnosPorCurso(c)">
+      </td>
+    </tr>
   }
-  </ul>
+  </table>
+}
+@if(listaAlumnosCurso().length>0){
+  El curso {{listaAlumnosCurso()[0].curso}} tiene {{listaAlumnosCurso().length}} alumnos:
+  <br>
+  <h4>Alumnos del curso {{listaAlumnosCurso()[0].curso}}</h4>
+  <table border="3">
+    <tr><th>&nbsp;ID&nbsp;</th><th>&nbsp;Nombre&nbsp;</th><th>&nbsp;email&nbsp;</th><th>&nbsp;Curso&nbsp;</th><th>&nbsp;Nota&nbsp;</th></tr>
+  @for(c of listaAlumnosCurso();track c){
+    <tr>
+      <td align="center">{{c.idAlumno}}</td>
+      <td align="center">{{c.nombre}}</td>
+      <td>&nbsp;{{c.email}}&nbsp;</td>
+      <td align="center">{{c.curso}}</td>
+      <td>{{c.nota|number}}&nbsp;-&nbsp;{{c.nota|calificacion}}</td>
+    </tr>
+  }
+  </table>
 }

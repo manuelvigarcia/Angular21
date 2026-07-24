@@ -1,1 +1,54 @@
 <p>nuevo-alumno works!</p>
+<div>
+  <div id="nuevo" class="page">
+    <h2>Nuevo Alumno</h2>
+    <form [formGroup]="registroForm" (ngSubmit)="alta()">
+      <table>
+        <tr>
+            <td><label>IdAlumno:</label></td>
+            <td><input type="number" formControlName="idAlumno"></td>
+            <td>
+              <small *ngIf="registroForm.get('idAlumno').hasError('required')&&error">El Id de alumno es obligatorio<br></small>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Email:</label></td>
+            <td><input type="email" formControlName="email"></td>
+            <td>
+              <small *ngIf="registroForm.get('email').hasError('required')&&error">El email es obligatorio<br></small>
+              <small *ngIf="registroForm.get('email').hasError('email')&&error">El email no tiene formato válido<br></small>
+            </td>
+        </tr>
+        <tr>
+          <td><label>Nombre:</label></td>
+          <td><input type="text" formControlName="nombre"></td>
+          <td>
+            <small *ngIf="registroForm.get('nombre').hasError('required')&&error">El nombre de alumno es obligatorio<br></small>
+          </td>
+        </tr>
+        <tr>
+          <td><label>Curso:</label></td>
+          <td><input type="text" formControlName="curso"></td>
+          <td>
+              <small *ngIf="registroForm.get('curso').hasError('required')&&error">El nombre del curso es obligatorio<br></small>
+              <small *ngIf="registroForm.get('curso').hasError('cursoAvanzado')&&error">{{registroForm.get('curso').errors['cursoAvanzado']}}</small>
+          </td>
+        </tr>
+        <tr>
+          <td><label>Nota:</label></td>
+          <td><input type="number" formControlName="nota"></td>
+          <td>
+            <small *ngIf="registroForm.get('nota').hasError('max')&&error">La nota debe ser 10 o menor</small>
+            <small *ngIf="registroForm.get('nota').hasError('min')&&error">La nota debe ser 1 o mayor</small>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td><input type="submit" value="Registrar"></td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      still works
+    </form>
+  </div>
+</div>
