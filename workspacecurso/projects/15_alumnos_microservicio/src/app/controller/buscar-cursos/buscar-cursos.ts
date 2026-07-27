@@ -1,6 +1,5 @@
 import { CursosService } from './../../service/cursos-service';
 import { Component, OnInit, signal } from '@angular/core';
-import { Curso } from '../../model/curso';
 import { Alumno } from '../../model/alumno';
 import { DecimalPipe } from '@angular/common';
 import { CalificacionPipe } from "../../pipes/calificacion-pipe";
@@ -12,7 +11,7 @@ import { CalificacionPipe } from "../../pipes/calificacion-pipe";
   styleUrl: './buscar-cursos.css',
 })
 export class BuscarCursos implements OnInit{
-  listaCursos=signal<Curso[]>([]);
+  listaCursos=signal<string[]>([]);
   listaAlumnosCurso=signal<Alumno[]>([]);
 
   constructor(private cursosService:CursosService){}
@@ -25,10 +24,8 @@ export class BuscarCursos implements OnInit{
     this.cursosService.cursos()
     .subscribe(cursos=>this.listaCursos.set(cursos))
   }
-  alumnosPorCurso(curso:Curso){
-    alert(`Alumnos del curso ${curso}`);
-    this.cursosService.alumnosPorCurso(curso.titulo)
+  alumnosPorCurso(curso:string){
+    this.cursosService.alumnosPorCurso(curso)
         .subscribe(alumnos=>this.listaAlumnosCurso.set(alumnos))
   }
-
 }

@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { Curso } from '../model/curso';
 import { Alumno } from '../model/alumno';
 
 @Injectable({
@@ -12,9 +11,10 @@ export class CursosService {
 
   constructor(private http:HttpClient){}
 
-  cursos():Observable<Curso[]>{
-    return this.http.get<Curso[]>(this.baseUrl+"cursos")
+  cursos():Observable<string[]>{
+    return this.http.get<string[]>(this.baseUrl+"cursos")
   }
+
 
   alumnos():Observable<Alumno[]>{
     return this.http.get<Alumno[]>(this.baseUrl+"alumnos")

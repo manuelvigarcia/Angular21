@@ -14,6 +14,6 @@ export class MenuCursos implements OnInit{
 
   }
   ngOnInit():void {
-    this.router.navigate(["/alumnoscurso"])
+    this.router.navigate(["/buscar-cursos"]);
   }
 }

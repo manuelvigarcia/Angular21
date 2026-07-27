@@ -7,7 +7,6 @@ import { validadorCurso } from '../../validadores/ValidadorCurso';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { Dialogo } from '../../ui/dialogo/dialogo';
-import { required } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-nuevo-alumno',
@@ -19,7 +18,7 @@ export class NuevoAlumno implements OnInit{
 
   error:boolean=false;
   registroForm = new FormGroup({
-    idAlumno: new FormControl(0, [Validators.required]),
+    idAlumno: new FormControl(0, [Validators.required, Validators.pattern('[0-9]{1,9}')]),
     nombre: new FormControl('', [Validators.required, Validators.minLength(3)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     nota: new FormControl('', [Validators.required, Validators.min(1),Validators.max(10)]),

@@ -2,7 +2,6 @@ import { FavoritosService } from './../../service/favoritos-service';
 import { CursosService } from './../../service/cursos-service';
 import { Component, OnInit, signal } from '@angular/core';
 import { Alumno } from '../../model/alumno';
-import { Curso } from '../../model/curso';
 import { Dialogo } from '../../ui/dialogo/dialogo';
 import { MatDialog } from '@angular/material/dialog';
 import { CalificacionPipe } from '../../pipes/calificacion-pipe';
@@ -14,7 +13,7 @@ import { CalificacionPipe } from '../../pipes/calificacion-pipe';
   styleUrl: './alumnos-curso.css',
 })
 export class AlumnosCurso implements OnInit{
-  cursos=signal<Curso[]>([])
+  cursos=signal<string[]>([])
   alumnosPorCurso=signal<Alumno[]>([])
 
   constructor(private cursosService:CursosService,

@@ -2,6 +2,7 @@
 <div id="cursos" class="page">
   <h2>Alumnos por curso</h2>
   <label>Selecciona un curso:</label>
+
   <select id="selectCurso" (change)="mostrarAlumnos($event)">
     <option value="">Seleccione un curso</option>
     @for(c of cursos();track c){
@@ -31,3 +32,7 @@
     </table>
   }
 </div>
+end of alumnos-curso!
+<!--
+
+-->

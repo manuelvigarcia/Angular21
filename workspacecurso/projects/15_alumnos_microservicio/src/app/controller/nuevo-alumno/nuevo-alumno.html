@@ -8,7 +8,8 @@
             <td><label>IdAlumno:</label></td>
             <td><input type="number" formControlName="idAlumno"></td>
             <td>
-              <small *ngIf="registroForm.get('idAlumno').hasError('required')&&error">El Id de alumno es obligatorio<br></small>
+              <small *ngIf="registroForm.get('idAlumno').hasError('required')&&registroForm.get('idAlumno').touched">El Id de alumno es obligatorio<br></small>
+              <small *ngIf="registroForm.get('idAlumno').hasError('pattern')&&error">El Id de alumno debe ser un número de hasta 9 dígitos<br></small>
             </td>
         </tr>
         <tr>
@@ -48,7 +49,7 @@
           <td>&nbsp;</td>
         </tr>
       </table>
-      still works
     </form>
   </div>
 </div>
+End of nuevo-alumno!
